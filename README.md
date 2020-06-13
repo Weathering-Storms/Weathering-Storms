@@ -1,21 +1,17 @@
-# Submission name
+# Weathering-Storms: Smart Suit
 
 [![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack) [![Website](https://img.shields.io/badge/View-Website-blue)](https://code-and-response.github.io/Project-Sample/)
 
 A basic GitHub repository example for Call for Code submissions and those projects that join the Code and Response initiative. Not all sections or files are required. You can make this as simple or as in-depth as you need.
 
-*Read this in other languages: [English](README.md), [한국어](README.ko.md), [português](README.pt_br.md).*
 
 ## Contents
 
-1. [Short description](#short-description)
-1. [Demo video](#demo-video)
-1. [The architecture](#the-architecture)
-1. [Long description](#long-description)
-1. [Project roadmap](#project-roadmap)
+1. [Description](#description)
+1. [Long Description](#long-description)
+1. [Video Pitch](#video-pitch)
+1. [Architecture of proposed solution](#architecture-of-proposed-solution)
 1. [Getting started](#getting-started)
-1. [Running the tests](#running-the-tests)
-1. [Live demo](#live-demo)
 1. [Built with](#built-with)
 1. [Contributing](#contributing)
 1. [Versioning](#versioning)
@@ -23,25 +19,33 @@ A basic GitHub repository example for Call for Code submissions and those projec
 1. [License](#license)
 1. [Acknowledgments](#acknowledgments)
 
-## Short description
+## Description
 
-### What's the problem?
+### What is the problem?
 
-Part of the World Health Organization's guidance on limiting further spread of COVID-19 is to practice social distancing. As a result, schools in most affected areas are taking precautionary measures by closing their facilities. With school-aged children at home for an indeterminate amount of time,  keeping them engaged, entertained, and on top of their education is important.
+With Climate change increasing global temperatures, and being in tropical Singapore, we are experiencing increasingly dangerous daily temperatures. Along with the Urban Heat Island Effect (https://en.wikipedia.org/wiki/Urban_heat_island), we are exposed to high ambient temperatures that could lead to life-threatening conditions.
+
+Firefighers are subjected to greater dangers as the nature of their job and their equipment restrict airflow to cool their bodies. This together with higher ambient temperatures lead to a increased risk of heat injury. The risk is further exaggerated during training and operations where their close vicinity to fire drastically increases the already high ambient temperatures. This becomes a major safety issue as we want to ensure the safety of our responders.
 
 ### How can technology help?
 
-Schools and teachers can continue to engage with their students through virtual classrooms, and even create interactive spaces for classes. As parents face a new situation where they may need to homeschool their children, finding appropriate online resources is important as well.
+By leveraging on data collection, analysis, and artificial intelligence, we are able to make better informed decisions to solve the problem at hand. As the job of responders often deal with lives-at-stake, it is essential that we are able to make the best decision before and during the operation to provide the casualty with the highest chance of survival. Therefore, it is imperative that we use technology to aid us, simplifying difficult decisions. 
 
-### The idea
+### What is your team's idea?
 
-It's imperative that learning and creating can continue when educational institutions have to shift the way they teach in times of crises, such as the COVID-19 pandemic. Providing a set of open source tools, backed by IBM Cloud and Watson Services, will enable educators to more easily make content available for their students.
+Through the use of Internet of Things (IoT), we decided to use temperature sensors to track the body temperature of each firefighter during training and in operation. By tracking each individual's body temperature, the commander-in-charge can be alerted of any personnel being at high risk of heat injury. Precautionary action can be taken before the personnel experiences heat injury, evacuating the firefighter before any serious injury can take effect. 
 
-## Demo video
+Through the use of temperature sensors, data will be collected and sent to IBM Cloud and Watson Services. The data can then be analysed and plotted on a real-time graph. This allows the commander to easily track the firefighter's body temperature relative to the time they have been inside the incident area. As such, this tracking capability ensures the safety of our responders and provides us with the confidence in deploying sections of firefighters.
+
+## Long description
+
+[Please click here to access the full proposal](DESCRIPTION.md)
+
+## Video Pitch
 
 [![Watch the video](https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/IBM-interview-video-image.png)](https://youtu.be/vOgCOoy_Bx0)
 
-## The architecture
+## Architecture of proposed solution
 
 ![Video transcription/translation app](https://developer.ibm.com/developer/tutorials/cfc-starter-kit-speech-to-text-app-example/images/cfc-covid19-remote-education-diagram-2.png)
 
@@ -50,13 +54,6 @@ It's imperative that learning and creating can continue when educational institu
 3. Watson Translation (optionally) can translate the text to the desired language.
 4. The app stores the translated text as a document within Object Storage.
 
-## Long description
-
-[More detail is available here](DESCRIPTION.md)
-
-## Project roadmap
-
-![Roadmap](roadmap.jpg)
 
 ## Getting started
 
@@ -64,29 +61,47 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+You need to install Arduino software and use its console to continue
 
 ```bash
 dnf install wget
-wget http://www.example.com/install.sh
-bash install.sh
+wget https://www.arduino.cc/en/main/software
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be, for example
+Once Arduino has been successfully installed, open up Arduino.
+Connect the circuit board with all the components attached to your computer via USB-A.
+Once the software and drivers have been installed, we can proceed to code and use the device.
 
 ```bash
-export TOKEN="fffd0923aa667c617a62f5A_fake_token754a2ad06cc9903543f1e85"
-export EMAIL="jane@example.com"
-dnf install npm
-node samplefile.js
-Server running at http://127.0.0.1:3000/
-```
+#include <Wire.h>
+#include <Adafruit_MLX90614.h>
 
-And repeat
+Adafruit_MLX90614 mlx = Infrared Thermometer();
+
+void setup() {
+  Serial.begin(9600);
+
+  Serial.println("Infrared Thermometer Display");  
+
+  mlx.begin();  
+}
+
+void loop() {
+  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempC()); 
+  Serial.print("*C\tObject = "); Serial.print(mlx.readObjectTempC()); Serial.println("*C");
+
+  Serial.println();
+  delay(3000);
+}
+```
+Through the whole set of code, we have started the system and the thermometer have begun collecting data.
+The data is collected in 3 second intervals and would output the ambient temperature and object temperature in Celsius.
+
+However, as there are currently no output display for the system to output the data, we will have to link this system with IBM Watson Cloud.
+
+### Connection between board and IBM IoT Platform
 
 ```bash
 curl localhost:3000
@@ -94,34 +109,6 @@ Thanks for looking at Code-and-Response!
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why, if you were using something like `mocha` for instnance
-
-```bash
-npm install mocha --save-dev
-vi test/test.js
-./node_modules/mocha/bin/mocha
-```
-
-### And coding style tests
-
-Explain what these tests test and why, if you chose `eslint` for example
-
-```bash
-npm install eslint --save-dev
-npx eslint --init
-npx eslint sample-file.js
-```
-
-## Live demo
-
-You can find a running system to test at [callforcode.mybluemix.net](http://callforcode.mybluemix.net/)
 
 ## Built with
 
