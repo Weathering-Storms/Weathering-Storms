@@ -43,7 +43,7 @@ The data is collected through a system within each firefighter and are sent to I
 
 ## Architecture of proposed solution
 
-![Video transcription/translation app](https://developer.ibm.com/developer/tutorials/cfc-starter-kit-speech-to-text-app-example/images/cfc-covid19-remote-education-diagram-2.png)
+![Video transcription/translation app](architecture.jpeg)
 
 1. Sensors export data to IBM Internet of Things Platform to store.
 2. User navigates to the site and requests for data.
