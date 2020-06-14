@@ -1,9 +1,8 @@
 # Weathering-Storms: Smart Suit
 
-[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack) [![Website](https://img.shields.io/badge/View-Website-blue)](https://code-and-response.github.io/Project-Sample/)
+[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
-A basic GitHub repository example for Call for Code submissions and those projects that join the Code and Response initiative. Not all sections or files are required. You can make this as simple or as in-depth as you need.
-
+We are "Weathering-Storms", and we participated in SCDF x IBM: Call for Code 2020 because we wanted to be able to impact our society through our passion of technology. When we heard about the hackathon, we jumped at the opportunity as we wanted to learn more about the issues we were facing in Singapore.
 
 ## Contents
 
@@ -14,28 +13,24 @@ A basic GitHub repository example for Call for Code submissions and those projec
 1. [Getting started](#getting-started)
 1. [Built with](#built-with)
 1. [Contributing](#contributing)
-1. [Versioning](#versioning)
-1. [Authors](#authors)
-1. [License](#license)
-1. [Acknowledgments](#acknowledgments)
 
 ## Description
 
 ### What is the problem?
 
-With Climate change increasing global temperatures, and being in tropical Singapore, we are experiencing increasingly dangerous daily temperatures. Along with the Urban Heat Island Effect (https://en.wikipedia.org/wiki/Urban_heat_island), we are exposed to high ambient temperatures that could lead to life-threatening conditions.
+With Climate change increasing global temperatures, and being in tropical Singapore, we are experiencing increasing daily average temperatures. Along with the Urban Heat Island Effect, we are exposed to higher than normal ambient temperatures.
 
-Firefighers are subjected to greater dangers as the nature of their job and their equipment restrict airflow to cool their bodies. This together with higher ambient temperatures lead to a increased risk of heat injury. The risk is further exaggerated during training and operations where their close vicinity to fire drastically increases the already high ambient temperatures. This becomes a major safety issue as we want to ensure the safety of our responders.
+Firefighers are made to operate in harsh conditions to tackle the issues of fire and rescue. The nature of their job subjects them to the dangers of high physical demands and extreme heat. The protective equipment they wear to protect themselves from fires also restrict body heat from escaping their bodies, this along with intensive physical labour forces the body to perspire excessively. Through prolonged training or operations, they become susceptible to heat injury at the incident scene. This is further exaggerated when they are in close vicinity to fires, which drastically increases the ambient temperatures.
 
 ### How can technology help?
 
-By leveraging on data collection, analysis, and artificial intelligence, we are able to make better informed decisions to solve the problem at hand. As the job of responders often deal with lives-at-stake, it is essential that we are able to make the best decision before and during the operation to provide the casualty with the highest chance of survival. Therefore, it is imperative that we use technology to aid us, simplifying difficult decisions. 
+By leveraging on data collection, analysis, and artificial intelligence, we are able to make better informed decisions to solve the problem at hand. As the job of responders often deal with lives-at-stake, it is essential that we are able to make the best decision before and during the operation to provide the casualty with the highest chance of survival. Therefore, it is imperative that we use technology to aid us in simplifying difficult decisions.
 
 ### What is your team's idea?
 
-Through the use of Internet of Things (IoT), we decided to use temperature sensors to track the body temperature of each firefighter during training and in operation. By tracking each individual's body temperature, the commander-in-charge can be alerted of any personnel being at high risk of heat injury. Precautionary action can be taken before the personnel experiences heat injury, evacuating the firefighter before any serious injury can take effect. 
+Through the use of Internet of Things (IoT), we decided to use temperature sensors to track the body temperature of each firefighter during training and in operation. By tracking each individual's body temperature, the commander-in-charge can be alerted of any personnel being at high risk of heat injury. Precautionary action can then be taken, pulling the personnel out before he/she experiences heat injury.
 
-Through the use of temperature sensors, data will be collected and sent to IBM Cloud and Watson Services. The data can then be analysed and plotted on a real-time graph. This allows the commander to easily track the firefighter's body temperature relative to the time they have been inside the incident area. As such, this tracking capability ensures the safety of our responders and provides us with the confidence in deploying sections of firefighters.
+The data is collected through a system within each firefighter and are sent to IBM Cloud, where it can analyzed and plotted on a real-time graph. With the information in the cloud, the commander simply has to connect to the cloud using his phone or any external device to access the information. This provides crucial information through visual graph and is also capable of large-scale monitoring of multiple firefighters simultaneously.
 
 ## Long description
 
@@ -73,17 +68,11 @@ To load Paho mqtt into Arduino IDE, download the zip file but do not unzip it
 In Arduino IDE, click on 'Select Sketch' -> 'Import Library' -> 'Add to Library' (select the zip file)
 
 Once the software have been installed, connect Arduino Uno to your computer
-The samples folder of this repository (https://github.com/ibm-messaging/iot-arduino) contains 2 folders, each containing 1 flow –
+The samples folder of this repository (https://github.com/ibm-messaging/iot-arduino) contains 2, folders each containing 1 flow –
 1. Quickstart flow
 2. Registered flow
 Compile the 2 sketch codes (corresponding to the flows)
 Depending upon the requirement, push one of the flows to the Arduino device
-
-1) Modify the AUTHTOKEN in the sketch code
-2) Modify the MS_PROXY, in the sketch code, by providing the values in the following format "uguhsp.messaging.internetofthings.ibmcloud.com", by replacing "uguhsp" with your organization
-3) Modify the CLIENT_ID, in the sketch code, by providing the values in the following format "d:uguhsp:iotsample-arduino:00aabbccde03", by replacing "aabbccde03" with the Device Id and "uguhsp" with the organization and "iotsample-arduino" with the device type that you entered when creating the device.
-4) Use mqttpublisher / mqttsubscriber to publish and subscribe the commands / events sent to / received from the Arduino Uno
-5) Modify the mac Address (given in the sample as { 0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x03 } ) by the MAC Address of the Ethernet shield. This applies only for Arduino Uno, no change required in Arduino Yun sketch.
 
 ### Connection with IBM Watson IoT Platform
 
@@ -141,31 +130,9 @@ With that completed, we have successfully connected the device with IBM's cloud 
 
 ## Built with
 
-* [IBM Cloudant](https://cloud.ibm.com/catalog?search=cloudant#search_results) - The NoSQL database used
-* [IBM Cloud Functions](https://cloud.ibm.com/catalog?search=cloud%20functions#search_results) - The compute platform for handing logic
-* [IBM API Connect](https://cloud.ibm.com/catalog?search=api%20connect#search_results) - The web framework used
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [IBM Internet of Things Platform](https://cloud.ibm.com/catalog?search=internet%20of%20things%20platform#search_results) - IoT        platform for coordinating data
+* [Arduino](https://github.com/arduino/Arduino) - IoT software and hardware
 
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/Code-and-Response/Project-Sample/graphs/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the Apache 2 License - see the [LICENSE](LICENSE) file for details
-
-## Acknowledgments
-
-* Based on [Billie Thompson's README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2).
