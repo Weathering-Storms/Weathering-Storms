@@ -39,7 +39,7 @@ The data is collected through a system within each firefighter and are sent to I
 
 ## Video Pitch
 
-[![Watch the video](https://youtu.be/XFW-n1bk9-Y)
+![Watch the video](https://youtu.be/XFW-n1bk9-Y)
 
 ## Architecture of proposed solution
 
