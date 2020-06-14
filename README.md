@@ -1,4 +1,5 @@
 # Weathering-Storms: Smart Suit
+## Team Members: Lee Kuan Wei, Pang Kai Yi
 
 [![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
@@ -44,11 +45,11 @@ The data is collected through a system within each firefighter and are sent to I
 
 ![Video transcription/translation app](https://developer.ibm.com/developer/tutorials/cfc-starter-kit-speech-to-text-app-example/images/cfc-covid19-remote-education-diagram-2.png)
 
-1. The user navigates to the site and uploads a video file.
-2. Watson Speech to Text processes the audio and extracts the text.
-3. Watson Translation (optionally) can translate the text to the desired language.
-4. The app stores the translated text as a document within Object Storage.
-
+1. Sensors export data to IBM Internet of Things Platform to store.
+2. User navigates to the site and requests for data.
+3. IBM Internet of Things Platform processes data from numerous sensors.
+4. IBM Internet of Things Platform analyzes and plots graphs.
+5. IBM Internet of Things Platform sends requested data to User.
 
 ## Getting started
 
