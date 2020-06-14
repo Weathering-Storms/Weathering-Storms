@@ -11,6 +11,7 @@ We are "Weathering-Storms", and we participated in SCDF x IBM: Call for Code 202
 When we received the brief, we decided to tackle problem statement 2, Climate Change. The problem statement is as follows:
 
 "Climate change is inevitable, with projected increase in temperatures leading to phenomena such as the Urban Heat Island effect. This leads to an environment and climate where it is increasingly physically challenging for First Responders to train and operate to maximum efficiency and performance. How might SCDF leverage wearables or other technologies to provide relief or enhancement in harsh operating conditions and maximise the safety, health and performance of First Responders during training and operations?"
+________________________________________________________________________________________________________________________________________
 
 With Climate change increasing global temperatures, and being in tropical Singapore, we are experiencing increasing daily average temperatures. Along with the Urban Heat Island Effect (https://en.wikipedia.org/wiki/Urban_heat_island), we are exposed to higher than normal ambient temperatures. It is also clear that through data, average annual temperatures have been on a rise (http://www.weather.gov.sg/climate-past-climate-trends/). This is a problem for us, but more so for out responders.
 
