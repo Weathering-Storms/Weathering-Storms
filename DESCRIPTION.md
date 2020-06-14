@@ -1,8 +1,8 @@
-# SCDFxIBM: Call for Code 2020
+# SCDF x IBM: Call for Code 2020
 
 ## Team Name: Weathering-Storms
 ## Project Name: Smart Suit
-## Project Team: Lee Kuan Wei, Pang Kai Yi
+## Team Members: Lee Kuan Wei, Pang Kai Yi
 
 We are "Weathering-Storms", and we participated in SCDF x IBM: Call for Code 2020 because we wanted to be able to impact our society through our passion of technology. When we heard about the hackathon, we jumped at the opportunity as we wanted to learn more about the issues we were facing in Singapore.
 
