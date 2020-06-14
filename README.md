@@ -39,7 +39,7 @@ The data is collected through a system within each firefighter and are sent to I
 
 ## Video Pitch
 
-[![Watch the video](https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/IBM-interview-video-image.png)](https://youtu.be/vOgCOoy_Bx0)
+[![Watch the video](https://youtu.be/XFW-n1bk9-Y)
 
 ## Architecture of proposed solution
 
