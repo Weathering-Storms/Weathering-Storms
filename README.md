@@ -57,22 +57,37 @@ Through the use of temperature sensors, data will be collected and sent to IBM C
 
 ## Getting started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. While there are many steps in establishing a connection between the IoT device and IBM's cloud, it ensures smooth flow of information once we start programming the IoT device itself.
 
-### Prerequisites
+### Installation
 
-You need to install Arduino software and use its console to continue
+You will need to install the required software as shown below:
 
 ```bash
 dnf install wget
 wget https://www.arduino.cc/en/main/software
+wget https://projects.eclipse.org/projects/iot.paho/downloads
+curl -LO https://github.com/ibm-messaging/iot-arduino.git
 ```
+To load Paho mqtt into Arduino IDE, download the zip file but do not unzip it
+In Arduino IDE, click on 'Select Sketch' -> 'Import Library' -> 'Add to Library' (select the zip file)
 
-### Installing
+Once the software have been installed, connect Arduino Uno to your computer
+The samples folder of this repository (https://github.com/ibm-messaging/iot-arduino) contains 2 folders, each containing 1 flow –
+1. Quickstart flow
+2. Registered flow
+Compile the 2 sketch codes (corresponding to the flows)
+Depending upon the requirement, push one of the flows to the Arduino device
 
-Once Arduino has been successfully installed, open up Arduino.
-Connect the circuit board with all the components attached to your computer via USB-A.
-Once the software and drivers have been installed, we can proceed to code and use the device.
+1) Modify the AUTHTOKEN in the sketch code
+2) Modify the MS_PROXY, in the sketch code, by providing the values in the following format "uguhsp.messaging.internetofthings.ibmcloud.com", by replacing "uguhsp" with your organization
+3) Modify the CLIENT_ID, in the sketch code, by providing the values in the following format "d:uguhsp:iotsample-arduino:00aabbccde03", by replacing "aabbccde03" with the Device Id and "uguhsp" with the organization and "iotsample-arduino" with the device type that you entered when creating the device.
+4) Use mqttpublisher / mqttsubscriber to publish and subscribe the commands / events sent to / received from the Arduino Uno
+5) Modify the mac Address (given in the sample as { 0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x03 } ) by the MAC Address of the Ethernet shield. This applies only for Arduino Uno, no change required in Arduino Yun sketch.
+
+### Connection with IBM Watson IoT Platform
+
+Using the Sketch program, key in the following code. Look at the lower part of the Sketch pad window to check that the COM connection is shown as active.
 
 ```bash
 #include <Wire.h>
@@ -96,19 +111,33 @@ void loop() {
   delay(3000);
 }
 ```
-Through the whole set of code, we have started the system and the thermometer have begun collecting data.
+Through the whole set of code, we have started the system and the sensor have begun collecting data.
 The data is collected in 3 second intervals and would output the ambient temperature and object temperature in Celsius.
+Check if the information is shown as we expected.
 
-However, as there are currently no output display for the system to output the data, we will have to link this system with IBM Watson Cloud.
+### IBM Watson IoT Platform
 
-### Connection between board and IBM IoT Platform
+To enable us to use IBM Watson IoT Platform, we would need to setup and register our device into the cloud network.
 
-```bash
-curl localhost:3000
-Thanks for looking at Code-and-Response!
-```
+Use the following guide to register the device into IBM Watson Internet of Things Platform (https://developer.ibm.com/recipes/tutorials/how-to-register-devices-in-ibm-iot-foundation/).
 
-End with an example of getting some data out of the system or using it for a little demo
+1. During the device registration process, you will receive file configuration information with the following information:
+                Organization ID, Device Type, Device ID, Authentication Method, Authentication Token
+2. Copy this information to the clipboard to use in the configuration file.
+3. Use the device credentials obtained during registration to modify the fields in the Sketch code
+4. Save the configuration file in the sketch program.
+
+Disclaimer:
+
+By default, the Watson IoT Platform only accepts secure connections. So, unless the sketch program has been configured, the Arduino device, by default initiates Insecure connection to Watson IoT Platform. In such cases, you might experience connectivity issues while initiating the connection between the device / gateway & WIoTP.
+
+However, to facilitate all connections ( both Secure and Insecure)  to WIoTP, the Platform provides a security configuration, that helps you to take a well informed decision to allow Insecure connections, under your supervision.
+
+### Data Visualization
+
+Now that a connection between the device and Watson IoT Platform has been established, we can begin to use the IoT Platform to perform analysis for us. We can start to create visualization charts for the real time data from the sensors.
+
+With that completed, we have successfully connected the device with IBM's cloud and are able to extract and analyze the data for us to better understand the situation.
 
 ## Built with
 
